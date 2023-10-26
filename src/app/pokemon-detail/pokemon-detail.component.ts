@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 //We import Pokemon as it binds to this component
-import { Pokemon } from '../pokemon';
+import { PokemonDetails } from '../pokemon-detail';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { PokemonService } from '../pokemon.service';
@@ -17,7 +17,7 @@ through its pokemon property and displays it. */
 export class PokemonDetailComponent {
   /*We add an Input property, bc in Angular is used for passing data from the
   parent component (Pokemon) to child component (pokemon-detail)*/
-  @Input() pokemon?: Pokemon;
+  @Input() pokemon?: PokemonDetails;
 /*Inject the ActivatedRoute, HeroService, and Location services into 
 the constructor, saving their values in private fields: */
   constructor(
@@ -36,12 +36,12 @@ The PokemonService gets hero data from the remote server and this component
 The location is an Angular service for interacting with the browser. 
 This service lets you navigate back to the previous view. */
 ngOnInit(): void {
-  this.getPokemon();
+  this.getPokemonDetails();
 }
 
-getPokemon(): void {
-  const id = Number(this.route.snapshot.paramMap.get('id'));
-  this.pokemonService.getPokemon(id)
+getPokemonDetails(): void {
+  const name= String(this.route.snapshot.paramMap.get('name'));
+  this.pokemonService.getPokemonDetails(name)
     .subscribe(pokemon => this.pokemon = pokemon);
 
 

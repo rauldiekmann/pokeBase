@@ -13,11 +13,11 @@ export class DashboardComponent implements OnInit {
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.getPokemons();
+    this.getPokemons(0,10);
   }
 
-  getPokemons(): void {
-    this.pokemonService.getPokemons()
-      .subscribe(pokemons => this.pokemons = pokemons.slice(1, 5));
+  getPokemons(offset:number,limit:number): void {
+    this.pokemonService.getPokemons(offset,limit)
+      .subscribe(pokemons => this.pokemons = pokemons);
   }
 }

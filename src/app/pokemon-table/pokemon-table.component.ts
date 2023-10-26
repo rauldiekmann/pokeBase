@@ -25,17 +25,21 @@ export class PokemonTableComponent {
   which could happen now or several minutes from now. 
   The subscribe() method passes the emitted array to the callback,
    which sets the component's heroes property. */
-  getPokemons(): void {
-    this.pokemonService.getPokemons()
-        .subscribe(pokemons => this.pokemons = pokemons);
+   getPokemons(offset: number, limit: number): void {
+    this.pokemonService.getPokemons(limit, offset)
+      .subscribe(pokemons => {
+        console.log('Received Pokémon data:', pokemons);
+        this.pokemons = pokemons;
+      });
   }
+  
  
   /*Call get pokemons in ngOnInit
   call getHeroes() inside the ngOnInit lifecycle hook and let Angular call 
   ngOnInit() at an appropriate time after constructing a HeroesComponent instance. 
   The constructor shouldn´t call a function that requests data*/
   ngOnInit(): void {
-    this.getPokemons();
+    this.getPokemons(0,20);
   }
 
 }

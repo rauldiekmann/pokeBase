@@ -9,7 +9,7 @@ const routes: Routes = [
   //default path
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   //parameterized route for pokemon details
-  { path: 'detail/:id', component: PokemonDetailComponent }
+  { path: 'detail/:name', component: PokemonDetailComponent }
 ];
 
 @NgModule({

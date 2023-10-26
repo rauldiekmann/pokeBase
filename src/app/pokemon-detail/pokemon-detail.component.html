@@ -4,8 +4,77 @@ The selection logic occurs in pokemon-table and then sent to this component,
 which just displays the pokemon details-->
 <div *ngIf="pokemon">
     <h2>{{pokemon.name | uppercase}} Details</h2>
-    <div>ID: {{pokemon.id}}</div>
-    <div>Name: {{pokemon.name}}</div>
+    <div>Height: {{pokemon.height}}</div>
+    <div>Weight: {{pokemon.weight}}</div>
+    <div>Is Default: {{pokemon.is_default}}</div>
+    <div>Location Area Encounters: {{pokemon.location_area_encounters}}</div>
+    
+    <h2>Abilities</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="Name">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let ability of pokemon.abilities">
+        <!-- Click event binding to display pokemon details
+        with class binding to change styles for selected pokemon-->
+          <td>
+               {{ability.ability.name | uppercase}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    
+    <h2>Moves</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="Name">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let move of pokemon.moves">
+        <!-- Click event binding to display pokemon details
+        with class binding to change styles for selected pokemon-->
+          <td>
+               {{move.move.name | uppercase}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+
+    
+    <h2>Stats</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="Name">Name</th>
+          <th>Base stat</th>
+          <th>Effort</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let stat of pokemon.stats">
+        <!-- Click event binding to display pokemon details
+        with class binding to change styles for selected pokemon-->
+          <td>
+               {{stat.stat.name | uppercase}}
+          </td>
+          <td>
+            {{stat.base_stat}}
+          </td>
+          <td>
+            {{stat.effort}}
+          </td>
+        </tr>
+      </tbody>
+    </table>    
+
   </div>
 
 

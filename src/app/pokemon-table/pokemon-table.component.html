@@ -13,8 +13,8 @@
       <!-- Click event binding to display pokemon details
       with class binding to change styles for selected pokemon-->
         <td>
-          <a routerLink="/detail/{{pokemon.id}}">
-            <span class="badge">{{pokemon.id}}</span> {{pokemon.name}}
+          <a routerLink="/detail/{{pokemon.name}}">
+             {{pokemon.name | uppercase}}
           </a>
         </td>
       </tr>
