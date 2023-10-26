@@ -1,0 +1,12 @@
+
+<!--This detail component can refer to any hero, not a selected one
+The selection logic occurs in pokemon-table and then sent to this component,
+which just displays the pokemon details-->
+<div *ngIf="pokemon">
+    <h2>{{pokemon.name | uppercase}} Details</h2>
+    <div>ID: {{pokemon.id}}</div>
+    <div>Name: {{pokemon.name}}</div>
+  </div>
+
+
+  <button type="button" (click)="goBack()">go back</button>

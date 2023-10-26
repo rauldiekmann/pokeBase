@@ -1,0 +1,24 @@
+<!--We must bind the pokemon-table-component.selectedPokemon 
+  to the element pokemon property-->
+
+      
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="Name">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let pokemon of pokemons">
+      <!-- Click event binding to display pokemon details
+      with class binding to change styles for selected pokemon-->
+        <td>
+          <a routerLink="/detail/{{pokemon.id}}">
+            <span class="badge">{{pokemon.id}}</span> {{pokemon.name}}
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    
+    
