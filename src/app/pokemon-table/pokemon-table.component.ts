@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
+import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
+
 @Component({
   selector: 'app-pokemon-table',
   templateUrl: './pokemon-table.component.html',
@@ -9,11 +11,21 @@ import { PokemonService } from '../pokemon.service';
 export class PokemonTableComponent {
   selectedPokemon?: Pokemon;
   pokemons: Pokemon[] = [];
+  paginator!: MatPaginator;
+  itemsPerPage=10;
+  currentPage=1;
+  
 
   
   //Inject PokemonService
   /**The parameter simultaneously defines a private pokemonService property and identifies it as a PokemonService injection site. */
-  constructor(private pokemonService: PokemonService) {}
+  constructor(
+    private matPaginatorIntl: MatPaginatorIntl,
+    private pokemonService: PokemonService // Add your PokemonService
+  ) {
+    // Customize paginator labels here if needed
+  }
+
   //Create a method to retrieve pokemons from the service
   /**Synchronous method
    *  getPokemons() : void{
@@ -31,6 +43,8 @@ export class PokemonTableComponent {
         console.log('Received Pokémon data:', pokemons);
         this.pokemons = pokemons;
       });
+
+      
   }
   
  
@@ -39,7 +53,8 @@ export class PokemonTableComponent {
   ngOnInit() at an appropriate time after constructing a HeroesComponent instance. 
   The constructor shouldn´t call a function that requests data*/
   ngOnInit(): void {
-    this.getPokemons(0,20);
+    //retrieve all the pokemons, which will then be sorted with the paginator
+    this.getPokemons(0,1292);
   }
 
 }
