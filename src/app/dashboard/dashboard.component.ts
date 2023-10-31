@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
-
+import { PokemonDetails } from '../pokemon-detail';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -9,6 +9,7 @@ import { PokemonService } from '../pokemon.service';
 })
 export class DashboardComponent implements OnInit {
   pokemons: Pokemon[] = [];
+
 
   constructor(private pokemonService: PokemonService) { }
 

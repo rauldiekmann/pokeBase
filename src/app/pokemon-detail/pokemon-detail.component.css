@@ -1,4 +1,9 @@
 /* HeroDetailComponent's private CSS styles */
+
+
+h2{
+  font-family: "Press Start 2P";
+}
 label {
     color: #435960;
     font-weight: bold;
@@ -8,11 +13,17 @@ label {
     padding: .5rem;
   }
   button {
-    margin-top: 20px;
-    background-color: #eee;
     padding: 1rem;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: var(--yellow);
+    color: #3d3d3d;
     border-radius: 4px;
-    font-size: 1rem;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-family: "Press Start 2P";
+    border: none;
   }
   button:hover {
     background-color: #cfd8dc;
@@ -22,6 +33,25 @@ label {
     color: #ccc;
     cursor: auto;
   }
+
+  .detail-head{
+    justify-content: center;
+  }
+
+ 
+
+  .detail-head table{
+    height: 100%;
+    width: 100%;
+  }
+
+  .namePicGoback{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 
   table {
     width: 100%;
@@ -53,4 +83,55 @@ label {
     text-decoration: none;
     color: inherit; /* Inherit the color from the parent element */
   }
+  
+ 
+  .blue-border {
+    width: 20%;
+    height: 20%;
+    border: 10px solid var(--darkblue); 
+    border-radius: 50%; 
+    overflow: hidden; 
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.blue-border img {
+  width: 100%; /* Make the image fill the container */
+  height: 100%; /* Make the image fill the container */
+  object-fit: cover; /* Resize the image to cover the container */
+}
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+  }
+
+
+
+  
+  th {
+    background-color: var(--darkblue);
+    text-align: left;
+    padding: 8px;
+    font-weight: bold;
+    font-family:'Press Start 2P';
+    color: white;
+  }
+  
+  tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  td {
+    padding: 8px;
+    background-color: var(--lightblue);
+    color: white;
+  }
+  
+  td:hover {
+    background-color: var(--yellow);
+  }
+  
+
   

@@ -2,8 +2,28 @@
 
 h2 {
     text-align: center;
+    font-family: "Press Start 2P";
   }
   
+  
+  .pokemons-menu {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Create a grid with 5 equal-width columns */
+    gap: 5px; /* Spacing between the items */
+    width: 100%;
+  }
+  
+  .pokemons-menu a {
+    text-align: center;
+    display: block;
+    padding: 2px;
+    border: 1px solid #ddd; /* Optional: added for visualization. You can remove this */
+  }
+  
+
+
+
+
   .heroes-menu {
     padding: 0;
     margin: auto;
@@ -19,18 +39,19 @@ h2 {
   }
   
   a {
-    background-color: #3f525c;
+    background-color: var(--lightblue);
     border-radius: 2px;
-    padding: 1rem;
     font-size: 1.2rem;
     text-decoration: none;
     display: inline-block;
     color: #fff;
     text-align: center;
     width: 100%;
-    min-width: 70px;
+    min-width: 110px;
     margin: .5rem auto;
     box-sizing: border-box;
+    font-family: "Press Start 2P";
+    font-size: 10px;
   
     /* flexbox */
     order: 0;

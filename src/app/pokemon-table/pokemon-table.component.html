@@ -1,11 +1,11 @@
 <!--We must bind the pokemon-table-component.selectedPokemon 
   to the element pokemon property-->
 
-      
-    <table class="table table-hover">
+<div class="container-md">
+  <table class="table  ">
     <thead>
       <tr>
-        <th scope="Name">Name</th>
+        <th scope="Name">Pokemon Name</th>
       </tr>
     </thead>
     <tbody>
@@ -20,16 +20,27 @@
       </tr>
     </tbody>
   </table>
+  <div class="pagination">
+  
+
+
+  <mat-paginator
+    (page)="handlePageEvent($event)"
+    [length]="length"
+    [pageSize]="itemsPerPage"
+    [showFirstLastButtons]="showFirstLastButtons"
+    [pageSizeOptions]="[5,10,20,30]"
+    [pageIndex]="pageIndex"
+    aria-label="Select page">
+</mat-paginator>
+  
+  
+ 
+  </div>
+</div>     
+    
 
  
 
     
-  <mat-paginator
-  [length]="pokemons.length"
-  [pageSize]="itemsPerPage"
-  [pageSizeOptions]="[itemsPerPage]"
-  [pageIndex]="currentPage - 1"
-  [showFirstLastButtons]="true"
-  (page)="currentPage = $event.pageIndex + 1"
-  [class]="paginator"
-></mat-paginator>
+  

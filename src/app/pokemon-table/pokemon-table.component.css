@@ -1,14 +1,18 @@
+
+
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color: var(--darkblue);
   text-align: left;
   padding: 8px;
   font-weight: bold;
+  font-family:'Press Start 2P';
+  color: white;
 }
 
 tr {
@@ -17,10 +21,12 @@ tr {
 
 td {
   padding: 8px;
+  background-color: var(--lightblue);
+  color: white;
 }
 
-tr:hover {
-  background-color: #f5f5f5;
+td:hover {
+  background-color: var(--yellow);
 }
 
 /* Remove text decoration for links */
@@ -28,3 +34,17 @@ a {
   text-decoration: none;
   color: inherit; /* Inherit the color from the parent element */
 }
+
+.pagination{
+  display: flex;
+  flex-direction: row;
+}
+
+.container-md{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+

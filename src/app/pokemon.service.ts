@@ -33,6 +33,10 @@ export class PokemonService {
     const url = `${this.pokemonsUrl}/${name}`;
     return this.http.get<any>(url);
   }
+
+  getPokemonEncounters(url: string): Observable<any> {
+    return this.http.get<any>(url);
+  }
 }
 
 

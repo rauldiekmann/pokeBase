@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Pokemon } from '../pokemon';
 import { PokemonService } from '../pokemon.service';
-import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorIntl,PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-pokemon-table',
@@ -10,12 +10,33 @@ import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 })
 export class PokemonTableComponent {
   selectedPokemon?: Pokemon;
+  allPokemons: Pokemon[] = []; // Store all fetched Pokémon here
   pokemons: Pokemon[] = [];
   paginator!: MatPaginator;
   itemsPerPage=10;
   currentPage=1;
-  
 
+  length = 1292;
+  pageSize = 10;
+  pageIndex = 0;
+  pageSizeOptions = [5, 10, 25];
+  showFirstLastButtons = true;
+
+handlePageEvent(event: PageEvent) {
+    this.itemsPerPage = event.pageSize;
+    this.currentPage = event.pageIndex + 1;
+    this.updateDisplayedPokemons();
+}
+
+updateDisplayedPokemons(): void {
+  const start = (this.currentPage - 1) * this.itemsPerPage;
+  const end = start + this.itemsPerPage;
+}
+
+  
+  changeItemsPerPage(event: Event) {
+    this.itemsPerPage = Number((event.target as HTMLSelectElement).value);
+  }
   
   //Inject PokemonService
   /**The parameter simultaneously defines a private pokemonService property and identifies it as a PokemonService injection site. */
@@ -42,6 +63,8 @@ export class PokemonTableComponent {
       .subscribe(pokemons => {
         console.log('Received Pokémon data:', pokemons);
         this.pokemons = pokemons;
+        this.allPokemons = pokemons;
+        this.updateDisplayedPokemons();
       });
 
       

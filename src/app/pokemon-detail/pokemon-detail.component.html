@@ -3,17 +3,40 @@
 The selection logic occurs in pokemon-table and then sent to this component,
 which just displays the pokemon details-->
 <div *ngIf="pokemon">
-    <h2>{{pokemon.name | uppercase}} Details</h2>
-    <div>Height: {{pokemon.height}}</div>
-    <div>Weight: {{pokemon.weight}}</div>
-    <div>Is Default: {{pokemon.is_default}}</div>
-    <div>Location Area Encounters: {{pokemon.location_area_encounters}}</div>
+  <div class="detail-head">
+    <div class="namePicGoback">
+      <button type="button" (click)="goBack()">go back</button>
+      <img class="blue-border" [src]="pokemon.sprites.front_default">
+      <h2>{{pokemon.name | uppercase}} Details</h2>
+    </div>
+    <div class="tableDiv">
+      <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Is Default</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{pokemon.height}}</td>
+                <td>{{pokemon.weight}}</td>
+                <td>{{pokemon.is_default}}</td>
+            </tr>
+        </tbody>
+    </table>
     
-    <h2>Abilities</h2>
+    </div>
+    
+  </div>
+   
+    
+    
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="Name">Name</th>
+          <th scope="Name">Abilities</th>
         </tr>
       </thead>
       <tbody>
@@ -26,34 +49,11 @@ which just displays the pokemon details-->
         </tr>
       </tbody>
     </table>
-    
-    
-    <h2>Moves</h2>
+
     <table class="table table-hover">
       <thead>
         <tr>
-          <th scope="Name">Name</th>
-        </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let move of pokemon.moves">
-        <!-- Click event binding to display pokemon details
-        with class binding to change styles for selected pokemon-->
-          <td>
-               {{move.move.name | uppercase}}
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-
-
-    
-    <h2>Stats</h2>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="Name">Name</th>
+          <th scope="Name">Stat</th>
           <th>Base stat</th>
           <th>Effort</th>
         </tr>
@@ -75,7 +75,42 @@ which just displays the pokemon details-->
       </tbody>
     </table>    
 
+
+    <!--NO CONSIGO QUE FUNCIONE-->
+<table class="table">
+      <thead>
+        <tr>
+          <th>Location Area Encounters</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let encounter of locations">
+          <td>{{ encounter.location_area.name }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    
+    
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="Name">Moves</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let move of pokemon.moves">
+        <!-- Click event binding to display pokemon details
+        with class binding to change styles for selected pokemon-->
+          <td>
+               {{move.move.name | uppercase}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
   </div>
 
 
-  <button type="button" (click)="goBack()">go back</button>
